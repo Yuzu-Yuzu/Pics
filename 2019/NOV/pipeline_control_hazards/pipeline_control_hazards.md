@@ -1,3 +1,4 @@
+# Pipeline Control Hazards
 <!-- TOC -->
 
 - [Pipeline Hazards](#pipeline-hazards)
