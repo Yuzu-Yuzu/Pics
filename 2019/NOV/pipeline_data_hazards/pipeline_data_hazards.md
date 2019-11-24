@@ -1,4 +1,5 @@
-﻿<!-- TOC -->
+# Pipeline Data Hazards
+<!-- TOC -->
 
 - [Pipeline Hazards](#pipeline-hazards)
 - [Data Hazards](#data-hazards)
