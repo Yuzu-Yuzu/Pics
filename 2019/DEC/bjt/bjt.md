@@ -1,3 +1,4 @@
+# BJT
 <!-- TOC -->
 
 - [Structure & Qualitative](#structure--qualitative)
