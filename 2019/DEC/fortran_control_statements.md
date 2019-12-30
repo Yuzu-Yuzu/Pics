@@ -3,7 +3,10 @@
 
 - [DO Loop](#do-loop)
 - [DO-EXIT Loop](#do-exit-loop)
+- [DO-WHILE Loop](#do-while-loop)
 - [IF-THEN-ELSE Statement](#if-then-else-statement)
+- [SELECT-CASE Statement](#select-case-statement)
+- [GOTO Statement](#goto-statement)
 
 <!-- /TOC -->
 # DO Loop
@@ -98,4 +101,73 @@ A shorter form if IF construct:
 ```fortran
 IF (condition) statement
 ! can be used when the code block inside IF has only 1 statement
+```
+# SELECT-CASE Statement
+```fortran
+CHARACTER CH
+DO
+    READ*, CH
+    PRINT*, ICHAR( CH )
+    IF (CH == '@') EXIT
+    IF (CH >= 'A' .and. CH <= 'Z'.or. CH >= 'a' .and. CH <= 'z') THEN
+        SELECT CASE (CH)
+        CASE ('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u')
+            PRINT*, 'Vowel'
+        CASE DEFAULT
+            PRINT*, 'Consonant'
+        END SELECT
+    ELSE
+        PRINT*, 'Something else'
+    END IF
+END DO
+```
+Colon may be used to specify a range of values.
+```fortran
+SELECT CASE ( INT(Final) )
+CASE (75:)
+    PRINT*, Name, CRM, ExmAvg, Final, '1'
+    Firsts = Firsts + 1
+CASE (70:74)
+    PRINT*, Name, CRM, ExmAvg, Final, '2+'
+    UpSeconds = UpSeconds + 1
+CASE (60:69)
+    PRINT*, Name, CRM, ExmAvg, Final, '2-'
+    LowSeconds = LowSeconds + 1
+CASE (50:59)
+    PRINT*, Name, CRM, ExmAvg, Final, '3'
+    Thirds = Thirds + 1
+CASE DEFAULT
+    PRINT*, Name, CRM, ExmAvg, Final, 'F'
+    Fails = Fails + 1
+END SELECT
+```
+# GOTO Statement
+label is a number in the range 1–99999 preceding a statement on the same line.
+```fortran
+! Using IF-THEN-ELSE
+IF (L1) THEN
+    I = 1
+    J = 2
+ELSE IF (L2) THEN
+    I = 2
+    J = 3
+ELSE
+    I = 3
+    J = 4
+END IF
+
+
+
+! Using GOTO
+IF (.NOT.L1) GOTO 10
+I = 1
+J = 2
+GOTO 30
+10 IF (.NOT.L2) GOTO 20
+I = 2
+J = 3
+GOTO 30
+20 I = 3
+J = 4
+30 CONTINUE ! Dummy statement - does nothing
 ```
