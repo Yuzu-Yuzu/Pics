@@ -46,6 +46,12 @@ DO
     END DO
 END
 ```
+# DO-WHILE Loop
+```fortran
+DO WHILE (logical-expr)
+    block
+    END DO
+```
 # IF-THEN-ELSE Statement
 ```fortran
 IF (condition) THEN
